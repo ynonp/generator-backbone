@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                 tasks: ['jst']
             }<% } %>,
             test: {
-                files: ['<%%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+                files: ['<%%= yeoman.app %>/scripts/{,*/}*.js', 'test/**/*.js'],
                 tasks: ['test:true']
             }
         },
@@ -103,6 +103,7 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
+														mountFolder(connect, '.'),
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'test'),
                             mountFolder(connect, yeomanConfig.app)
